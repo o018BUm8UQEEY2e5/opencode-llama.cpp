@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "opencode-plugin-llama.cpp",
+  "name": "@yvfu/opencode-plugin-llama.cpp",
   "version": "0.2.0",
   "description": "OpenCode plugin for enhanced llama.cpp support with auto-detection and dynamic model discovery",
   "type": "module",
@@ -36,7 +36,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/llessi06/opencode-llama.cpp.git"
+    "url": "git+https://github.com/o018BUm8UQEEY2e5/opencode-llama.cpp.git"
   },
   "dependencies": {
     "@opencode-ai/plugin": "^1.1.21"
