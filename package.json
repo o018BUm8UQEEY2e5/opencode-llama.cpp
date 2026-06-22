@@ -8,7 +8,6 @@
   "exports": {
     ".": "./dist/index.js"
   },
-  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -20,8 +19,8 @@
     "test:watch": "vitest watch",
     "lint": "eslint src --ext .ts",
     "lint:fix": "eslint src --ext .ts --fix",
-    "build": "tsc",
-    "build:full": "pnpm run build && pnpm run typecheck && pnpm run test:run",
+    "build": "rm -rf dist && esbuild src/index.ts --bundle --platform=node --format=esm --outfile=dist/index.js",
+    "build:full": "pnpm run typecheck && pnpm run build && pnpm run test:run",
     "validate": "pnpm run lint && pnpm run typecheck && pnpm run test:run",
     "validate:config": "node scripts/validate-config.ts",
     "prepublishOnly": "pnpm run build:full"
@@ -47,6 +46,7 @@
     "@typescript-eslint/eslint-plugin": "^8.53.0",
     "@typescript-eslint/parser": "^8.53.0",
     "@vitest/coverage-v8": "^4.0.17",
+    "esbuild": "^0.28.1",
     "eslint": "^9.39.2",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.53.0",
