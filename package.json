@@ -4,12 +4,13 @@
   "version": "0.2.0",
   "description": "OpenCode plugin for enhanced llama.cpp support with auto-detection and dynamic model discovery",
   "type": "module",
-  "main": "./src/index.ts",
+  "main": "./dist/index.js",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./dist/index.js"
   },
+  "types": "./dist/index.d.ts",
   "files": [
-    "src"
+    "dist"
   ],
   "scripts": {
     "typecheck": "tsc --noEmit",
@@ -19,10 +20,11 @@
     "test:watch": "vitest watch",
     "lint": "eslint src --ext .ts",
     "lint:fix": "eslint src --ext .ts --fix",
-    "build": "pnpm run typecheck && pnpm run test:run",
+    "build": "tsc",
+    "build:full": "pnpm run build && pnpm run typecheck && pnpm run test:run",
     "validate": "pnpm run lint && pnpm run typecheck && pnpm run test:run",
     "validate:config": "node scripts/validate-config.ts",
-    "prepublishOnly": "pnpm run build"
+    "prepublishOnly": "pnpm run build:full"
   },
   "keywords": [
     "opencode",
